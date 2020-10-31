@@ -1,0 +1,241 @@
+---
+title: "Shift the unfairness"
+subtitle: "A Probe into the Influence of Shanghai Educational Policy"
+author: "金会智 | 石宇洋 | 宋辰霆"
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, zh-CN.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+    self_contained: true
+---
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#596A74"
+)
+library(tidyverse)
+```
+
+## Content
+
+### Two kinds of unfairness
+
+#### Public School: Lottery and House-based Unfairness
+
+#### Private School: Assess and Capital-based Unfairness
+
+### Shanghai New Policy: Shift the unfairness
+
+### Preliminary empirical results
+
+---
+class: inverse, center, middle
+
+# Two kinds of unfairness
+---
+### Two kinds of unfairness
+
+.pull-left[
+* Pubilc School
+
+  * "Nearby and Lottery Regulation" 摇号入学、就近入学
+  
+  * "The Golden House"--House in School District 
+  
+  * House-based Unfairness]
+
+.pull-right[
+* Private School
+
+  * Comprehensive Assessment 
+  
+  * Better facilities and teachers, Expensive tuition
+  
+  * Capital-based Unfairness
+  
+  * **Admitted before public schools**
+  
+      * Before: Students who have not been admitted to a private school can normally participate in the admission of a public school]
+    
+---
+### Two kinds of unfairness: Pubilc School
+
+* Nearby Principle
+
+> 地方各级人民政府应当保障适龄儿童、少年在户籍所在地学校**就近入学**。——《中华人民共和国义务教育法》，1986
+
+* House in School District and the real "Golden" House
+
+> The nearby principle makes housing play a decisive role in the allocation of basic education resources, and it also becomes the key to obtaining high-quality educational resources. Parents can only spend a lot of money to buy houses in areas with better educational resources.
+
+---
+### Two kinds of unfairness
+
+.pull-left[
+* Pubilc School
+
+  * "Nearby and Lottery Regulation" 摇号入学、就近入学
+  
+  * "The Golden House"--House in School District 
+  
+  * House-based Unfairness]
+
+.pull-right[
+* Private School
+
+  * Comprehensive Assessment 
+  
+  * Better facilities and teachers, Expensive tuition
+  
+  * Capital-based Unfairness
+  
+  * **Admitted before public schools**
+  
+      * Before: Students who have not been admitted to a private school can normally participate in the admission of a public school]
+    
+---
+### Two kinds of unfairness: Private School
+
+* From encouragement to suppression
+
+  > Governments at all levels and education administrative departments should encourage and support social forces to organize various educational undertakings, safeguard the legitimate rights and interests of schools, protect the enthusiasm for running schools, and when conditions permit, try their best to help solve the difficulties in running schools.
+  
+  >各级人民政府...应鼓励和支持社会力量举办各种教育事业，维护学校正当权益，保护办学积极性，在条件允许的情况下，尽力帮助解决办学中存在的困难。——《关于社会力量办学的若干暂行规定》（1987）
+  
+  > ****
+
+  > Adhere to the public welfare nature of education, whether it is a non-profit private school or a for-profit private school, we must always put social benefits in the first place.
+  
+  > 坚持教育的公益属性...始终把社会效益放在首位。——《国务院关于鼓励社会力量兴办教育促进民办教育健康发展的若干意见》（2016）
+  
+---
+class: inverse, center, middle
+
+# Shanghai New Policy: Shift the unfairness
+---
+### Shanghai New Policy: Shift the unfairness
+
+Illusory education equity
+
+> Enrollment of private schools is included in the unified management of the place of approval, and enrollment is **synchronized** with public schools.
+
+> 民办义务教育学校招生纳入审批地统一管理，与公办学校**同步招生**。——《中共中央国务院关于深化教育教学改革全面提高义务教育质量的意见》（2019）
+
+> ****
+
+>"Nearby and Lottery Regulation" 摇号入学、就近入学
+
+>报名人数超过招生计划数时由区教育行政部门实施电脑随机录取。——《上海市教育委员会关于2020年本市义务教育阶段学校招生入学工作的实施意见》（2020）
+
+Spending money to get more opportunities no longer exists
+
+ * Parents can only choose between public and private primary schools. 
+ 
+ * In Shanghai, the policy was confirmed and announced on **Apr.4th**.
+ 
+---
+class: nature, left, middle
+
+### Shift the unfairness
+
+When private schools cannot enroll students before public schools, their value actually decreases. Therefore, the value of school district housing linked to public schools is expected to increase
+
+
+---
+class: inverse, center, middle
+
+# Preliminary empirical results
+---
+class: nature, left, middle
+
+### Hypothesis
+
+H0: After the policy was announced, there was **no significant difference** between the growth rate of house prices in Shanghai school districts and those in non-school districts
+
+H1: After the policy was announced, the growth rate of housing prices in Shanghai school districts was **significantly higher** than that of non-school district housing prices
+
+---
+class: nature, left, middle
+
+### Data and Method
+
+Data
+* Source
+  Website: fang.com (“房天下”)
+  We use python crawler program to access neighborhood-level price data, which is formed by second-hand housing trade.
+  
+* Volume
+  Panel price data of second-hand housing **monthly** trade, from **11,809** neighborhoods in Shanghai, **36** months (2017.10-2020.9). **425,124** price observations in total.
+  
+* Credibility
+  Fang.com is one of the **biggest websites** on house price information in China. And we’ve checked the price difference among the largest websites and that is **not significant**. The samples are **selected and distributed uniformly** so the result is **unbiased**.
+  
+Method: DID model with fixed effects on monthly time 
+
+\begin{align}
+lnP{i,t} - lnP{i,t-1} \sim month_{t}+policy_t+sch_i+virus_t+policy_t*sch_i+\epsilon
+\end{align}
+  
+---
+class: nature, left, top
+background-image: url(https://github.com/yangtzesyy/public-finance/blob/main/pic01-descriptive.png?raw=true)
+background-position: 50% 70%
+background-size: 600px
+
+### Descriptive statistics: monthly average price growth rate
+
+\begin{align}
+\frac{1}{i} \sum_{i} \frac{P_{t}-P_{t-1}}{P_{t-1}}
+\end{align}
+
+---
+class: nature, left, top
+background-image: url(https://github.com/yangtzesyy/public-finance/blob/main/pic02-regression.png?raw=true)
+background-position: 50% 75%
+background-size: 700px
+
+### Regression Result
+
+\begin{align}
+lnP_{it}-lnP_{it-1} \sim  month_{t}+Policy_t+School_i+Policy_t*School_i+Virus_t+\xi
+\end{align}
+
+DID > 0 , means that the policy raised the growth rate of house price golden houses
+99% significance
+
+
+---
+class: nature, left, middle
+### Improvement in the future
+
+Add fixed effect on neighborhoods and solve the collinearity
+
+$lnP{i,t} - lnP{i,t-1} \sim  month_{t}+policy_t+sch_i+virus_t+policy_t*sch_i+neighborhood_i+\epsilon$
+
+Now School dummy and fixed effect of neighborhoods has collinearity. (whether we add fixed effect the coefficient doesn’t change the coefficient a lot so we drop it.
+---
+class: inverse, middle, center
+
+# Q & A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
